@@ -6,6 +6,10 @@ package com.amf.metrics;
 
 public class MainTest {
 	
+	/**
+	 * 
+	 */
+	
 //	@Test
 //	public void startMetricsTest() {
 //		//Main mainMethod = new Main();
