@@ -1,4 +1,4 @@
-package com.amf.metrics;
+package co.finecode.metrics;
 
 public class FileMetrics {
 	private String fileName;

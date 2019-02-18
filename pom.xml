@@ -3,12 +3,12 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
-  <groupId>com.amf.metrics</groupId>
+  <groupId>co.finecode.metrics</groupId>
   
   <version>0.1</version>
-	<artifactId>amf-metrics</artifactId>
+	<artifactId>finecode-metrics</artifactId>
 	<packaging>jar</packaging>
-	<name>amf-metrics</name>
+	<name>finecode-metrics</name>
 	<properties>
     <maven.compiler.target>1.8</maven.compiler.target>
     <maven.compiler.source>1.8</maven.compiler.source>
@@ -29,7 +29,7 @@
 					<!-- MainClass in mainfest make a executable jar -->
 					<archive>
 						<manifest>
-							<mainClass>com.amf.metrics.Main</mainClass>
+							<mainClass>com.finecode.metrics.Main</mainClass>
 						</manifest>
 					</archive>
 

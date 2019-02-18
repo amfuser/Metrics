@@ -1,7 +1,8 @@
 /*
  */
-package com.amf.metrics;
+package co.finecode.metrics;
 
+import java.io.File;
 import java.util.ArrayList;
 
 import javafx.application.Application;
@@ -26,8 +27,8 @@ public class Main extends Application {
 	 */
 	
 	public static void main(String args[]) {
-		//startMetrics(args);
-		launch(args);
+		startMetrics(args);
+		//launch(args);
 	}
 	
 	@Override
@@ -35,6 +36,22 @@ public class Main extends Application {
 		primaryStage.setTitle("Code Metrics");
 		
 		Pane root = new Pane();
+		
+		Button chooseBtn = new Button();
+		chooseBtn.setText("Choose");
+		chooseBtn.setOnAction(new EventHandler<ActionEvent>() {
+        @Override
+        public void handle(ActionEvent event) {
+        	DirectoryChooser chooser = new DirectoryChooser();
+          chooser.setTitle("JavaFX Projects");
+          File defaultDirectory = new File("/Users/afranke");
+          chooser.setInitialDirectory(defaultDirectory);
+          File fileOrDirectory = chooser.showDialog(primaryStage);
+          System.out.println("Selected Directory: " + fileOrDirectory);
+          //startMetrics(fileOrDirectory.getName());
+        }
+    });
+		
 		
 		Button exitBtn = new Button();
     exitBtn.setText("Exit");
@@ -44,10 +61,13 @@ public class Main extends Application {
         	Platform.exit();
         }
     });
-		
-    FileChooser fileChooser = new FileChooser();
+		 
+    // Directory choose button
+    chooseBtn.setLayoutX(420);
+    chooseBtn.setLayoutY(100);
+    root.getChildren().add(chooseBtn);
     
-	  //Exit button
+	  // Exit button
 		exitBtn.setLayoutX(420);
     exitBtn.setLayoutY(400);
     root.getChildren().add(exitBtn);

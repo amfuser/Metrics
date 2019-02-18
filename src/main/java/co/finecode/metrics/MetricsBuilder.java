@@ -1,4 +1,4 @@
-package com.amf.metrics;
+package co.finecode.metrics;
 
 import java.io.BufferedReader;
 import java.io.File;
