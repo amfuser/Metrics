@@ -91,9 +91,9 @@ public class MetricsBuilder {
 			//String sCurrentLine;
 			Integer linesOfJava = 0;
 			Integer lines = 0;
+			String line = "";
 			Integer commentLines = 0;
-			while ((br.readLine()) != null) {
-				String line = br.readLine();
+			while ((line = br.readLine()) != null) {
 				if(line.trim().startsWith("//") || inCommentBlock) {
 					commentLines++;
 				}
