@@ -12,6 +12,7 @@ public class MetricsBuilder {
 	private String allFilesList;
 	private Integer totalLinesOfJava = 0;
 	private Integer totalJavaFiles = 0;
+	private Integer totalCommentLines = 0;
 	
 	private ArrayList<String> fileNames = new ArrayList<String>();
 	
@@ -23,6 +24,14 @@ public class MetricsBuilder {
 	
 	public void setTotalLinesOfJava(Integer totalLinesOfJava) {
 		this.totalLinesOfJava = totalLinesOfJava;
+	}
+	
+	public Integer getTotalCommentLines() {
+		return this.totalCommentLines;
+	}
+	
+	public void setTotalCommentLines(Integer totalCommentLines) {
+		this.totalCommentLines = totalCommentLines;
 	}
 	
 	public Integer getTotalJavaFiles() {
@@ -78,13 +87,32 @@ public class MetricsBuilder {
 		try {
 			fr = new FileReader(fileName.trim());
 			br = new BufferedReader(fr);
+			boolean inCommentBlock = false;
 			//String sCurrentLine;
+			Integer linesOfJava = 0;
 			Integer lines = 0;
+			Integer commentLines = 0;
 			while ((br.readLine()) != null) {
+				String line = br.readLine();
+				if(line.trim().startsWith("//") || inCommentBlock) {
+					commentLines++;
+				}
+				else if(line.trim().startsWith("/*")) {
+					inCommentBlock = true;
+					commentLines++;
+				}
+				else {
+					linesOfJava++;
+				}
+				if(line.trim().endsWith("*/")) {
+					inCommentBlock = false;
+				}
 				lines++;
 				//System.out.println(sCurrentLine);
 			}
 			metrics.setNumberOfLines(lines);
+			metrics.setNumberOfJavaLines(linesOfJava);
+			metrics.setCommentLines(commentLines);
 			metrics.setFileName(fileName);
 			//System.out.println("Total Lines: " + lines);
 		} catch (IOException e) {
@@ -129,13 +157,14 @@ public class MetricsBuilder {
             	if(file.getName().endsWith(".java")) {
             		totalJavaFiles++;
             		totalLinesOfJava += metrics.getNumberOfLines();
+            		totalCommentLines += metrics.getCommentLines();
             	}
             }
             catch(IOException ex) {
             	ex.printStackTrace();
             }
         }
-    }
+    };
     
     return fileList;
 	}
