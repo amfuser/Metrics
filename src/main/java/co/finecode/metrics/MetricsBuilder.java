@@ -107,7 +107,8 @@ public class MetricsBuilder {
 				if(line.trim().endsWith("*/")) {
 					inCommentBlock = false;
 				}
-				lines++;
+				if(!line.trim().isEmpty())
+					lines++;
 				//System.out.println(sCurrentLine);
 			}
 			metrics.setNumberOfLines(lines);
@@ -154,7 +155,7 @@ public class MetricsBuilder {
             	FileMetrics metrics = buildFileMetrics(file.getAbsolutePath());
             	fileNames.add(file.getAbsolutePath());
             	allFilesList += metrics.getFileName() + "\n";
-            	if(file.getName().endsWith(".java")) {
+            	if(file.getName().endsWith(".java") || file.getName().endsWith(".php")) {
             		totalJavaFiles++;
             		totalLinesOfJava += metrics.getNumberOfLines();
             		totalCommentLines += metrics.getCommentLines();
