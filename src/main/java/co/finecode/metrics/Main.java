@@ -87,17 +87,25 @@ public class Main { //extends Application {
 		MetricsBuilder builder = new MetricsBuilder();
 		try {
 			result = builder.buildMetrics(args);
-			Integer totalLinesOfJava = builder.getTotalLinesOfJava();
-			Integer totalJavaFiles = builder.getTotalJavaFiles();
+			Integer totalLinesOfCode = builder.getTotalLinesOfCode();
+			Integer totalFiles = builder.getTotalFiles();
 			Integer totalCommentLines = builder.getTotalCommentLines();
 			ArrayList<String> fileNames = builder.getFileNames();
 			
 			for(String fileName : fileNames) {
 				System.out.println(fileName);
 			}
-			
-			System.out.println("Total java files: " + totalJavaFiles + " containing " + totalLinesOfJava + " lines of Java code");
-			System.out.println("Total comment lines: " + totalCommentLines);
+
+			if(args[1] != null) {
+				System.out.println("Total java files: " + totalFiles + " containing " + totalLinesOfCode +
+						" lines of " + args[1] + " code");
+				System.out.println("Total comment lines: " + totalCommentLines);
+			}
+			else {
+				System.out.println("Total java files: " + totalFiles + " containing " + totalLinesOfCode +
+						" lines of java code");
+				System.out.println("Total comment lines: " + totalCommentLines);
+			}
 		}
 		catch (Exception ex) {
 			ex.printStackTrace();

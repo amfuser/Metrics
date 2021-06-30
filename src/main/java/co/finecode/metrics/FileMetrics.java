@@ -4,7 +4,7 @@ public class FileMetrics {
 	private String fileName;
 	private Integer numberOfLines;
 	private Integer commentLines;
-	private Integer numberOfJavaLines;
+	private Integer numberOfCodeLines;
 	private Integer whiteSpaceLines;
 	
 	// Getters and Setters
@@ -24,12 +24,12 @@ public class FileMetrics {
     this.numberOfLines = numberOfLines;
   }
   
-  public Integer getNumberJavaOfLines() {
-	    return numberOfJavaLines;
+  public Integer getNumberCodeOfLines() {
+	    return numberOfCodeLines;
   }
 	  
-  public void setNumberOfJavaLines(Integer numberOfJavaLines) {
-    this.numberOfJavaLines = numberOfJavaLines;
+  public void setNumberOfCodeLines(Integer numberOfCodeLines) {
+    this.numberOfCodeLines = numberOfCodeLines;
   }
 	
   public Integer getCommentLines() {
