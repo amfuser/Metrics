@@ -1,9 +1,12 @@
-package co.finecode.metrics;
+package co.finecode.metrics.language;
 
 public class LanguageFileExt {
 
-    private String php = "php";
-    private String java = "java";
+    private final String JAVA_EXTENSION = ".java";
+    private final String PHP_EXTENSION = ".php";
+
+    private final String PHP_LANGUAGE = "php";
+    private final String JAVA_LANGUAGE = "java";
 
     /**
      * Returns a file extension type based on language name
@@ -13,10 +16,10 @@ public class LanguageFileExt {
      */
 
     public String getLanguageExtension(String language) {
-        if(language.toLowerCase().equals("java"))
-            return ".java";
-        else if(language.toLowerCase().equals("php"))
-            return ".php";
+        if(language.toLowerCase().equals(JAVA_LANGUAGE))
+            return JAVA_EXTENSION;
+        else if(language.toLowerCase().equals(PHP_LANGUAGE))
+            return PHP_EXTENSION;
 
         return null;
     }
