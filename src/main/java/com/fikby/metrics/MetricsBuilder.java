@@ -1,6 +1,6 @@
-package co.finecode.metrics;
+package com.fikby.metrics;
 
-import co.finecode.metrics.language.LanguageFileExt;
+import com.fikby.metrics.language.LanguageFileExt;
 
 import java.io.BufferedReader;
 import java.io.File;

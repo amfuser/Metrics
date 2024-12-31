@@ -1,4 +1,4 @@
-package co.finecode.metrics;
+package com.fikby.metrics;
 
 public class FileMetrics {
 	private String fileName;
